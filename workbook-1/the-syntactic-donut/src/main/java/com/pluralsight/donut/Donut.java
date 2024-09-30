@@ -29,7 +29,6 @@ public class Donut {
     public static double getTotalPrice(int numberOfDonuts ) {
 
         return price * numberOfDonuts;
-
     }
 
     public static void main(String[] args) {
@@ -60,3 +59,4 @@ public class Donut {
     }
 
 }
+

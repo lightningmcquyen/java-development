@@ -23,7 +23,6 @@ public class FinancialCalculators {
                 return monthlyPayout * (1 - Math.pow(1 + monthlyRate, -n)) / monthlyRate;
         }
 
-
         public static void main(String[] args) {
                 Scanner scanner = new Scanner(System.in);
                 int choice;
@@ -33,8 +32,7 @@ public class FinancialCalculators {
                 System.out.println("1. Mortgage Calculator");
                 System.out.println("2. Future Value Calculator (Daily Compounded Interest)");
                 System.out.println("3. Present Value Calculator (Ordinary Annuity)");
-                System.out.println("4. Off");
-                System.out.print("Select Options 1 - 4: ");
+                System.out.print("Select Options 1 - 3: ");
                 choice = scanner.nextInt();
 
                 switch (choice) {
@@ -45,14 +43,15 @@ public class FinancialCalculators {
                                 System.out.print("Enter annual rate (in %): ");
                                 double annualRate = scanner.nextDouble();
                                 System.out.print("Enter loan term (in years): ");
-                                int years = scanner.nextInt();
+                                int loanlengthyears = scanner.nextInt();
 
-                                double monthlyPayment = calculateMortgage(principal, annualRate, years);
-                                double totalPayment = monthlyPayment * years * 12;
+                                double monthlyPayment = calculateMortgage(principal, annualRate, loanlengthyears);
+                                double totalPayment = monthlyPayment * loanlengthyears * 12;
                                 double totalInterest = totalPayment - principal;
 
                                 System.out.printf("Expected Monthly Payment: %.2f%n", monthlyPayment);
                                 System.out.printf("Total Interest Paid: %.2f%n", totalInterest);
+                                break;
 
                         case 2:
                                 // Future Value Calculator
@@ -68,6 +67,7 @@ public class FinancialCalculators {
 
                                 System.out.printf("Future Value: %.2f%n", futureValue);
                                 System.out.printf("Total Interest Earned: %.2f%n", totalInterestEarned);
+                                break;
 
                         case 3:
                                 // Present Value Calculator
@@ -79,10 +79,8 @@ public class FinancialCalculators {
                                 int presentYears = scanner.nextInt();
 
                                 double presentValue = calculatePresentValue(monthlyPayout, presentRate, presentYears);
-                                System.out.printf("Present Value of the Annuity: %.2f%n", presentValue);
 
-                        case 4:
-                                //Off
+                                System.out.printf("Present Value of the Annuity: %.2f%n", presentValue);
                                 scanner.close();
                 }
         }
