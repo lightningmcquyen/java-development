@@ -44,9 +44,11 @@ public class FinancialCalculators {
                                 double interestRate = scanley.nextDouble();
                                 System.out.println("Enter loan term (in years): ");
                                 int loanyears = scanley.nextInt();
+
                                 double monthlyPayment = calculateMortgage(principal, interestRate, loanyears);
                                 double totalPayment = (monthlyPayment * loanyears) * 12;
                                 double totalInterest = totalPayment - principal;
+
                                 System.out.printf("Expected Monthly Payment: %.2f%n", monthlyPayment);
                                 System.out.printf("Total Interest Paid: %.2f%n", totalInterest);
                         }
@@ -57,8 +59,10 @@ public class FinancialCalculators {
                                 double currentRate = scanley.nextDouble();
                                 System.out.print("Enter number of years: ");
                                 int years = scanley.nextInt();
+
                                 double futureValue = calculateFutureValue(deposit, currentRate, years);
                                 double totalInterestEarned = futureValue - (deposit);
+
                                 System.out.printf("Future Value: %.2f%n", futureValue);
                                 System.out.printf("Total Interest Earned: %.2f%n", totalInterestEarned);
                         }
@@ -69,7 +73,9 @@ public class FinancialCalculators {
                                 double expectedRate = scanley.nextDouble();
                                 System.out.print("Enter number of years to pay out: ");
                                 int yearstopayout = scanley.nextInt();
+
                                 double presentValue = calculatePresentValue(monthlyPayout, expectedRate, yearstopayout);
+
                                 System.out.printf("Present Value of the Annuity: %.2f%n", presentValue);
                         }
                 }
